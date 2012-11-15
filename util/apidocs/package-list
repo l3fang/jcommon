@@ -1,0 +1,5 @@
+com.facebook.util
+com.facebook.util.compress
+com.facebook.util.digest
+com.facebook.util.exceptions
+com.facebook.util.serialization

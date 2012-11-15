@@ -19,9 +19,9 @@ import org.joda.time.DateTime;
 import org.joda.time.DateTimeField;
 import org.joda.time.DateTimeFieldType;
 import org.joda.time.DateTimeZone;
-import org.joda.time.Duration;
 import org.joda.time.DurationField;
 import org.joda.time.Period;
+import org.joda.time.PeriodType;
 import org.joda.time.chrono.ISOChronology;
 import org.joda.time.field.FieldUtils;
 
@@ -40,31 +40,31 @@ import org.joda.time.field.FieldUtils;
  * &lt;/p&gt;
  */
 <span class="pc" id="L42">public enum TimeIntervalType {</span>
-<span class="fc" id="L43">  MILLIS(DateTimeFieldType.millisOfSecond(), null) {</span>
+<span class="fc" id="L43">  MILLIS(PeriodType.millis(), DateTimeFieldType.millisOfSecond(), null) {</span>
     @Override
     public Period toPeriod(int length) {
 <span class="fc" id="L46">      return Period.millis(length);</span>
     }
   },
-<span class="fc" id="L49">  SECOND(DateTimeFieldType.secondOfMinute(), MILLIS) {</span>
+<span class="fc" id="L49">  SECOND(PeriodType.seconds(), DateTimeFieldType.secondOfMinute(), MILLIS) {</span>
     @Override
     public Period toPeriod(int length) {
 <span class="fc" id="L52">      return Period.seconds(length);</span>
     }
   },
-<span class="fc" id="L55">  MINUTE(DateTimeFieldType.minuteOfHour(), SECOND) {</span>
+<span class="fc" id="L55">  MINUTE(PeriodType.minutes(), DateTimeFieldType.minuteOfHour(), SECOND) {</span>
     @Override
     public Period toPeriod(int length) {
 <span class="fc" id="L58">      return Period.minutes(length);</span>
     }
   },
-<span class="fc" id="L61">  HOUR(DateTimeFieldType.hourOfDay(), MINUTE) {</span>
+<span class="fc" id="L61">  HOUR(PeriodType.hours(), DateTimeFieldType.hourOfDay(), MINUTE) {</span>
     @Override
     public Period toPeriod(int length) {
 <span class="fc" id="L64">      return Period.hours(length);</span>
     }
   },
-<span class="fc" id="L67">  DAY(DateTimeFieldType.dayOfMonth(), HOUR) {</span>
+<span class="fc" id="L67">  DAY(PeriodType.days(), DateTimeFieldType.dayOfMonth(), HOUR) {</span>
     @Override
     public Period toPeriod(int length) {
 <span class="fc" id="L70">      return Period.days(length);</span>
@@ -76,25 +76,26 @@ import org.joda.time.field.FieldUtils;
    * as a time interval type, until we can have the weeks starting on the
    * correct day (Sunday/Monday) per the locale.
    */
-<span class="fc" id="L79">  WEEK(DateTimeFieldType.weekOfWeekyear(), DAY) {</span>
+<span class="fc" id="L79">  WEEK(PeriodType.weeks(), DateTimeFieldType.weekOfWeekyear(), DAY) {</span>
     @Override
     public Period toPeriod(int length) {
 <span class="fc" id="L82">      return Period.weeks(length);</span>
     }
   },
-<span class="fc" id="L85">  MONTH(DateTimeFieldType.monthOfYear(), DAY) {</span>
+<span class="fc" id="L85">  MONTH(PeriodType.months(), DateTimeFieldType.monthOfYear(), DAY) {</span>
     @Override
     public Period toPeriod(int length) {
 <span class="fc" id="L88">      return Period.months(length);</span>
     }
   },
-<span class="fc" id="L91">  YEAR(DateTimeFieldType.yearOfCentury(), MONTH) {</span>
+<span class="fc" id="L91">  YEAR(PeriodType.years(), DateTimeFieldType.yearOfCentury(), MONTH) {</span>
     @Override
     public Period toPeriod(int length) {
 <span class="fc" id="L94">      return Period.years(length);</span>
     }
   };
 
+  private final PeriodType periodType;
   private final DateTimeFieldType fieldType;
   private final TimeIntervalType subType;
 
@@ -104,10 +105,15 @@ import org.joda.time.field.FieldUtils;
    * @param type The field type corresponding to this interval type.
    * @param subType The subtype for this type.
    */
-<span class="fc" id="L107">  private TimeIntervalType(DateTimeFieldType type, TimeIntervalType subType) {</span>
-<span class="fc" id="L108">    this.fieldType = type;</span>
-<span class="fc" id="L109">    this.subType = subType;</span>
-<span class="fc" id="L110">  }</span>
+  private TimeIntervalType(
+    PeriodType periodType,
+    DateTimeFieldType type,
+    TimeIntervalType subType
+<span class="fc" id="L112">  ) {</span>
+<span class="fc" id="L113">    this.periodType = periodType;</span>
+<span class="fc" id="L114">    this.fieldType = type;</span>
+<span class="fc" id="L115">    this.subType = subType;</span>
+<span class="fc" id="L116">  }</span>
 
   /**
    * Returns a period representing this interval type.
@@ -125,15 +131,15 @@ import org.joda.time.field.FieldUtils;
    * @param intervalLength the interval length
    */
   public void validateValue(DateTimeZone timeZone, long intervalLength) {
-<span class="fc" id="L128">    final DateTimeField field = fieldType.getField(TimeUtil.getChronology(timeZone.getID()));</span>
-<span class="fc bfc" id="L129" title="All 4 branches covered.">    if (intervalLength &lt; 1</span>
+<span class="fc" id="L134">    final DateTimeField field = fieldType.getField(TimeUtil.getChronology(timeZone.getID()));</span>
+<span class="fc bfc" id="L135" title="All 4 branches covered.">    if (intervalLength &lt; 1</span>
       || intervalLength &gt; field.getMaximumValue()) {
-<span class="fc" id="L131">      throw new IllegalArgumentException(</span>
+<span class="fc" id="L137">      throw new IllegalArgumentException(</span>
         &quot;Supplied value &quot; + intervalLength
           + &quot; is out of bounds for &quot; + name()
       );
     }
-<span class="fc" id="L136">  }</span>
+<span class="fc" id="L142">  }</span>
 
 
   /**
@@ -150,26 +156,21 @@ import org.joda.time.field.FieldUtils;
     DateTime instant,
     long length
   ) {
-<span class="fc" id="L153">    validateValue(instant.getZone(), length);</span>
+<span class="fc" id="L159">    validateValue(instant.getZone(), length);</span>
     // Get the time in the specified timezone
-<span class="fc" id="L155">    DateTime periodStart = instant;</span>
+<span class="fc" id="L161">    DateTime periodStart = instant;</span>
     // Clear all the fields for this intervalType and its subtypes
-<span class="fc" id="L157">    TimeIntervalType timeIntervalType = this;</span>
-<span class="fc bfc" id="L158" title="All 2 branches covered.">    while (timeIntervalType != null) {</span>
-<span class="fc" id="L159">      periodStart = timeIntervalType.clearField(periodStart);</span>
-<span class="fc" id="L160">      timeIntervalType = timeIntervalType.subType;</span>
+<span class="fc" id="L163">    TimeIntervalType timeIntervalType = this;</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">    while (timeIntervalType != null) {</span>
+<span class="fc" id="L165">      periodStart = timeIntervalType.clearField(periodStart);</span>
+<span class="fc" id="L166">      timeIntervalType = timeIntervalType.subType;</span>
     }
     // figure out the which time interval does the instant lie in
-<span class="fc" id="L163">    Duration duration = new Duration(periodStart, instant);</span>
-<span class="fc" id="L164">    final DurationField durationField = fieldType.getField(</span>
-      ISOChronology.getInstance(
-        instant.getZone()
-      )
-    ).getDurationField();
-<span class="fc" id="L169">    int diff = durationField.getValue(duration.getMillis());</span>
-<span class="fc" id="L170">    long startDelta = (diff / length) * length;</span>
-<span class="fc" id="L171">    return periodStart.withFieldAdded(durationField.getType(),</span>
-                                      FieldUtils.safeToInt(startDelta));
+<span class="fc" id="L169">    Period period = new Period(periodStart, instant, periodType);</span>
+<span class="fc" id="L170">    DurationField durationField = fieldType.getField(instant.getChronology()).getDurationField();</span>
+<span class="fc" id="L171">    int diff = period.get(durationField.getType());</span>
+<span class="fc" id="L172">    long startDelta = (diff / length) * length;</span>
+<span class="fc" id="L173">    return periodStart.withFieldAdded(durationField.getType(), FieldUtils.safeToInt(startDelta));</span>
   }
 
   /**
@@ -178,16 +179,15 @@ import org.joda.time.field.FieldUtils;
    * @return the number of milliseconds per unit of this interval type.
    */
   public long toDurationMillis() {
-<span class="fc" id="L181">    return fieldType.getDurationType().getField(</span>
+<span class="fc" id="L182">    return fieldType.getDurationType().getField(</span>
       // Assume that durations are always in UTC
       ISOChronology.getInstance(DateTimeZone.UTC)).getUnitMillis();
   }
 
   protected DateTime clearField(DateTime value) {
-<span class="fc" id="L187">    return value.withField(</span>
+<span class="fc" id="L188">    return value.withField(</span>
       fieldType,
-      fieldType.getField(ISOChronology.getInstance(value.getZone()))
-        .getMinimumValue()
+      fieldType.getField(value.getChronology()).getMinimumValue()
     );
   }
 }
