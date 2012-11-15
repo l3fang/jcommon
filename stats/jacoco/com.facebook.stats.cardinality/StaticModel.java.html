@@ -38,7 +38,7 @@ class StaticModel implements Model {
 <span class="nc" id="L38">    counts = new int[weights.length + 1];</span>
 <span class="nc" id="L39">    totalIndex = weights.length;</span>
 
-<span class="nc" id="L41">    double[] probabilities = weightsToProbabilities(weights);</span>
+<span class="nc" id="L41">    double[] probabilities = weightsToProbabilities(weights, 10);</span>
 
 <span class="nc bnc" id="L43" title="All 2 branches missed.">    for (int symbol = 0; symbol &lt; probabilities.length; symbol++) {</span>
 <span class="nc" id="L44">      double probability = probabilities[symbol];</span>

@@ -47,7 +47,7 @@ class SortedStaticModel implements Model {
 <span class="nc" id="L47">    countsByIndex = new int[weights.length + 1];</span>
 <span class="nc" id="L48">    totalIndex = weights.length;</span>
 
-<span class="nc" id="L50">    double[] probabilities = weightsToProbabilities(weights);</span>
+<span class="nc" id="L50">    double[] probabilities = weightsToProbabilities(weights, 10);</span>
 <span class="nc" id="L51">    List&lt;SymbolProbability&gt; symbolProbabilities = sortProbabilities(probabilities);</span>
 
 <span class="nc" id="L53">    int symbolIndex = 0;</span>

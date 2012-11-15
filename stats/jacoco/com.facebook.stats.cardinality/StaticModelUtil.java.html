@@ -30,46 +30,57 @@ final class StaticModelUtil {
 <span class="nc" id="L30">  }</span>
 
   public static double[] weightsToProbabilities(double[] weights) {
-<span class="nc" id="L33">    Preconditions.checkNotNull(weights, &quot;weights is null&quot;);</span>
-<span class="nc bnc" id="L34" title="All 2 branches missed.">    Preconditions.checkArgument(weights.length &gt; 0, &quot;weights is empty&quot;);</span>
-
-<span class="nc" id="L36">    return weightsToProbabilities(Arrays.copyOf(weights, weights.length), sum(weights));</span>
+<span class="nc" id="L33">    return weightsToProbabilities(weights, Integer.MAX_VALUE);</span>
   }
 
-  private static double[] weightsToProbabilities(double[] weights, double sum) {
-<span class="nc bnc" id="L40" title="All 2 branches missed.">    for (int i = 0; i &lt; weights.length; i++) {</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">      Preconditions.checkArgument(</span>
-          weights[i] &gt;= 0,
-          &quot;weight %s value %s is not greater than zero&quot;,
-          i,
-          weights[i]
-      );
-<span class="nc" id="L47">      weights[i] /= sum;</span>
+  public static double[] weightsToProbabilities(double[] weights, int iterationLimit) {
+<span class="nc" id="L37">    Preconditions.checkNotNull(weights, &quot;weights is null&quot;);</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">    Preconditions.checkArgument(weights.length &gt; 0, &quot;weights is empty&quot;);</span>
 
-      // adjust probability is too small or too large
-      // this number is large enough that when multiplied by MAX_TOTAL we get a whole number
-<span class="nc bnc" id="L51" title="All 2 branches missed.">      if (weights[i] &lt; SMALLEST_PROBABILITY) {</span>
-<span class="nc" id="L52">        weights[i] = SMALLEST_PROBABILITY;</span>
-<span class="nc bnc" id="L53" title="All 2 branches missed.">      } else if (weights[i] &gt; 0.999) {</span>
-        // this generally leaves enough room for ever symbol to get a whole number part of MAX_TOTAL
-<span class="nc" id="L55">        weights[i] = 0.999;</span>
+<span class="nc" id="L40">    return weightsToProbabilities(</span>
+      Arrays.copyOf(weights, weights.length), sum(weights), iterationLimit
+    );
+  }
+
+  private static strictfp double[] weightsToProbabilities(
+    double[] weights, double sum, int iterationLimit
+  ) {
+<span class="nc" id="L48">    int iterationCount = 0;</span>
+
+    do {
+<span class="nc bnc" id="L51" title="All 2 branches missed.">      for (int i = 0; i &lt; weights.length; i++) {</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        Preconditions.checkArgument(</span>
+            weights[i] &gt;= 0,
+            &quot;weight %s value %s is not greater than zero&quot;,
+            i,
+            weights[i]
+        );
+<span class="nc" id="L58">        weights[i] /= sum;</span>
+
+        // adjust probability is too small or too large
+        // this number is large enough that when multiplied by MAX_TOTAL we get a whole number
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        if (weights[i] &lt; SMALLEST_PROBABILITY) {</span>
+<span class="nc" id="L63">          weights[i] = SMALLEST_PROBABILITY;</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        } else if (weights[i] &gt; 0.999) {</span>
+          // this generally leaves enough room for ever symbol to get a whole number part of MAX_TOTAL
+<span class="nc" id="L66">          weights[i] = 0.999;</span>
+        }
       }
-    }
 
-    // keep normalizing until the total probability falls in a specific range
-<span class="nc" id="L60">    double newSum = sum(weights);</span>
-<span class="nc bnc" id="L61" title="All 4 branches missed.">    if (newSum &lt; 0.9999 || newSum &gt; 1.0001) {</span>
-<span class="nc" id="L62">      weightsToProbabilities(weights, newSum);</span>
-    }
-<span class="nc" id="L64">    return weights;</span>
+      // keep normalizing until the total probability falls in a specific range
+<span class="nc" id="L71">      sum = sum(weights);</span>
+<span class="nc" id="L72">      ++iterationCount;</span>
+<span class="nc bnc" id="L73" title="All 6 branches missed.">    } while ((sum &lt; 0.9999 || sum &gt; 1.0001) &amp;&amp; iterationCount &lt; iterationLimit);</span>
+
+<span class="nc" id="L75">    return weights;</span>
   }
 
-  private static double sum(double[] values) {
-<span class="nc" id="L68">    double sum = 0;</span>
-<span class="nc bnc" id="L69" title="All 2 branches missed.">    for (double value : values) {</span>
-<span class="nc" id="L70">      sum += value;</span>
+  private static strictfp double sum(double[] values) {
+<span class="nc" id="L79">    double sum = 0;</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">    for (double value : values) {</span>
+<span class="nc" id="L81">      sum += value;</span>
     }
-<span class="nc" id="L72">    return sum;</span>
+<span class="nc" id="L83">    return sum;</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.6.0.201210061924</span></div></body></html>

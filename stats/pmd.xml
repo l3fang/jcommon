@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.3" timestamp="2012-11-12T16:42:37.382">
-<file name="/private/tmp/jcommon/stats/src/main/java/com/facebook/stats/CounterCacher.java">
+<pmd version="4.3" timestamp="2012-11-14T21:18:32.710">
+<file name="/tmp/xx/jcommon/target/checkout/stats/src/main/java/com/facebook/stats/CounterCacher.java">
 <violation beginline="91" endline="91" begincolumn="54" endcolumn="64" rule="AvoidThreadGroup" ruleset="Basic Rules" package="com.facebook.stats" class="CounterCacher" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#AvoidThreadGroup" priority="3">
 Avoid using java.lang.ThreadGroup; it is not thread safe
 </violation>
 </file>
-<file name="/private/tmp/jcommon/stats/src/main/java/com/facebook/stats/StatsManager.java">
+<file name="/tmp/xx/jcommon/target/checkout/stats/src/main/java/com/facebook/stats/StatsManager.java">
 <violation beginline="124" endline="124" begincolumn="5" endcolumn="11" rule="UnnecessaryReturn" ruleset="Basic Rules" package="com.facebook.stats" class="StatsManager" method="ensureType" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#UnnecessaryReturn" priority="3">
 Avoid unnecessary return statements
 </violation>
@@ -13,12 +13,12 @@ Avoid unnecessary return statements
 Avoid empty catch blocks
 </violation>
 </file>
-<file name="/private/tmp/jcommon/stats/src/main/java/com/facebook/stats/cardinality/DenseEstimator.java">
+<file name="/tmp/xx/jcommon/target/checkout/stats/src/main/java/com/facebook/stats/cardinality/DenseEstimator.java">
 <violation beginline="187" endline="190" begincolumn="7" endcolumn="7" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="com.facebook.stats.cardinality" class="DenseEstimator" method="estimate" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
 </file>
-<file name="/private/tmp/jcommon/stats/src/main/java/com/facebook/stats/cardinality/HyperLogLogUtil.java">
+<file name="/tmp/xx/jcommon/target/checkout/stats/src/main/java/com/facebook/stats/cardinality/HyperLogLogUtil.java">
 <violation beginline="50" endline="53" begincolumn="7" endcolumn="7" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="com.facebook.stats.cardinality" class="HyperLogLogUtil" method="estimateCardinality" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
