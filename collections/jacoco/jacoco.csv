@@ -1,7 +1,7 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 jcommon collections package,com.facebook.collections,Pair,97,15,24,0,16,6,15,3,3,3
-jcommon collections package,com.facebook.collections,PackedByteArray,124,387,12,32,22,83,14,24,4,12
 jcommon collections package,com.facebook.collections,LongArray.Iter,15,188,4,18,3,39,4,11,0,4
+jcommon collections package,com.facebook.collections,PackedByteArray,124,387,12,32,22,83,14,24,4,12
 jcommon collections package,com.facebook.collections,WrappedSet,103,0,6,0,24,0,21,0,18,0
 jcommon collections package,com.facebook.collections,ConcurrentSetMap,0,6,0,0,0,2,0,1,0,1
 jcommon collections package,com.facebook.collections,WrappedIterator,18,0,0,0,7,0,4,0,4,0
@@ -10,8 +10,8 @@ jcommon collections package,com.facebook.collections,CounterMap,88,78,6,4,16,19,
 jcommon collections package,com.facebook.collections,TranslatingIterable,18,0,0,0,5,0,2,0,2,0
 jcommon collections package,com.facebook.collections,RangeSet,0,319,1,33,0,47,1,24,0,8
 jcommon collections package,com.facebook.collections,DynamicIterator,21,106,2,6,6,25,3,6,1,4
-jcommon collections package,com.facebook.collections,PeekableIterator,52,0,8,0,16,0,10,0,6,0
 jcommon collections package,com.facebook.collections,ByteArray.ByteArrayComparator,12,65,6,16,6,20,5,8,0,2
+jcommon collections package,com.facebook.collections,PeekableIterator,52,0,8,0,16,0,10,0,6,0
 jcommon collections package,com.facebook.collections,PriorityQueueHeap,52,0,0,0,13,0,9,0,9,0
 jcommon collections package,com.facebook.collections,MixedTypeMap,0,64,0,0,0,18,0,8,0,8
 jcommon collections package,com.facebook.collections,RangeSet.LongSegment,4,43,2,4,1,11,2,7,0,6
@@ -23,14 +23,14 @@ jcommon collections package,com.facebook.collections,SetMapImpl,67,51,5,3,14,13,
 jcommon collections package,com.facebook.collections,EntryValueMapper,6,0,0,0,2,0,2,0,2,0
 jcommon collections package,com.facebook.collections,Triple,151,0,32,0,27,0,23,0,7,0
 jcommon collections package,com.facebook.collections,TranslatingIterator,26,0,0,0,9,0,4,0,4,0
+jcommon collections package,com.facebook.collections,ByteArray,35,55,7,11,8,18,7,9,2,5
 jcommon collections package,com.facebook.collections,ByteArray.ByteArrayView,98,0,2,0,18,0,10,0,9,0
-jcommon collections package,com.facebook.collections,ByteArray,94,15,20,0,26,4,14,3,4,3
 jcommon collections package,com.facebook.collections,ComparablePair,23,0,2,0,6,0,3,0,2,0
 jcommon collections package,com.facebook.collections,LongArray,36,269,8,20,6,49,8,19,1,12
-jcommon collections package,com.facebook.collections,ListMapper,25,0,2,0,6,0,3,0,2,0
-jcommon collections package,com.facebook.collections,Key,14,72,5,5,6,19,7,6,2,6
-jcommon collections package,com.facebook.collections,ConcurrentSetFactory,0,8,0,0,0,2,0,2,0,2
 jcommon collections package,com.facebook.collections,HostPort,126,0,20,0,26,0,17,0,7,0
+jcommon collections package,com.facebook.collections,ListMapper,25,0,2,0,6,0,3,0,2,0
+jcommon collections package,com.facebook.collections,ConcurrentSetFactory,0,8,0,0,0,2,0,2,0,2
+jcommon collections package,com.facebook.collections,Key,14,72,5,5,6,19,7,6,2,6
 jcommon collections package,com.facebook.collections,RangeSet.LongSegment.new Iterator() {...},9,37,1,3,2,7,2,4,1,3
 jcommon collections package,com.facebook.collections,RangeSet.new Iterator() {...},5,68,1,11,1,10,2,8,1,3
 jcommon collections package,com.facebook.collections.specialized,ColtHashSet,62,0,0,0,14,0,8,0,8,0

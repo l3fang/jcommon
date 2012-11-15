@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.3" timestamp="2012-11-12T16:37:14.348">
-<file name="/private/tmp/jcommon/collections/src/main/java/com/facebook/collections/ByteArray.java">
-<violation beginline="171" endline="171" begincolumn="16" endcolumn="25" rule="OverrideBothEqualsAndHashcode" ruleset="Basic Rules" package="com.facebook.collections" class="ByteArray$ByteArrayView" method="hashCode" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#OverrideBothEqualsAndHashcode" priority="3">
+<pmd version="4.3" timestamp="2012-11-14T21:10:06.074">
+<file name="/tmp/xx/jcommon/target/checkout/collections/src/main/java/com/facebook/collections/ByteArray.java">
+<violation beginline="163" endline="163" begincolumn="16" endcolumn="25" rule="OverrideBothEqualsAndHashcode" ruleset="Basic Rules" package="com.facebook.collections" class="ByteArray$ByteArrayView" method="hashCode" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#OverrideBothEqualsAndHashcode" priority="3">
 Ensure you override both equals() and hashCode()
 </violation>
 </file>
-<file name="/private/tmp/jcommon/collections/src/main/java/com/facebook/collections/specialized/LongHashSet.java">
+<file name="/tmp/xx/jcommon/target/checkout/collections/src/main/java/com/facebook/collections/specialized/LongHashSet.java">
 <violation beginline="149" endline="151" begincolumn="9" endcolumn="9" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="com.facebook.collections.specialized" class="LongHashSet" method="findLocationOf" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
