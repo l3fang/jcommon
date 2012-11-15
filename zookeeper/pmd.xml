@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.3" timestamp="2012-11-12T16:43:54.694">
-<file name="/private/tmp/jcommon/zookeeper/src/main/java/com/facebook/zookeeper/app/ZkApplication.java">
+<pmd version="4.3" timestamp="2012-11-14T21:20:20.862">
+<file name="/tmp/xx/jcommon/target/checkout/zookeeper/src/main/java/com/facebook/zookeeper/app/ZkApplication.java">
 <violation beginline="396" endline="399" begincolumn="21" endcolumn="21" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="com.facebook.zookeeper.app" class="ZkApplication$StateContext$ConnectedStateHandler" method="run" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
@@ -8,17 +8,17 @@ These nested if statements could be combined
 These nested if statements could be combined
 </violation>
 </file>
-<file name="/private/tmp/jcommon/zookeeper/src/main/java/com/facebook/zookeeper/cmd/ZNodeBulkLoader.java">
+<file name="/tmp/xx/jcommon/target/checkout/zookeeper/src/main/java/com/facebook/zookeeper/cmd/ZNodeBulkLoader.java">
 <violation beginline="85" endline="87" begincolumn="9" endcolumn="7" rule="EmptyCatchBlock" ruleset="Basic Rules" package="com.facebook.zookeeper.cmd" class="ZNodeBulkLoader" method="createEntirePath" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
 Avoid empty catch blocks
 </violation>
 </file>
-<file name="/private/tmp/jcommon/zookeeper/src/main/java/com/facebook/zookeeper/cmd/ZNodeDump.java">
+<file name="/tmp/xx/jcommon/target/checkout/zookeeper/src/main/java/com/facebook/zookeeper/cmd/ZNodeDump.java">
 <violation beginline="54" endline="56" begincolumn="7" endcolumn="5" rule="EmptyCatchBlock" ruleset="Basic Rules" package="com.facebook.zookeeper.cmd" class="ZNodeDump" method="dump" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
 Avoid empty catch blocks
 </violation>
 </file>
-<file name="/private/tmp/jcommon/zookeeper/src/main/java/com/facebook/zookeeper/cmd/ZNodePruner.java">
+<file name="/tmp/xx/jcommon/target/checkout/zookeeper/src/main/java/com/facebook/zookeeper/cmd/ZNodePruner.java">
 <violation beginline="102" endline="104" begincolumn="9" endcolumn="7" rule="EmptyCatchBlock" ruleset="Basic Rules" package="com.facebook.zookeeper.cmd" class="ZNodePruner" method="internalPrunePersistent" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
 Avoid empty catch blocks
 </violation>
