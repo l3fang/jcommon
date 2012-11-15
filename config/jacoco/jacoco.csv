@@ -8,8 +8,8 @@ jcommon config,com.facebook.config,LongExtractor,0,8,0,0,0,2,0,2,0,2
 jcommon config,com.facebook.config,BooleanExtractor,8,0,0,0,2,0,2,0,2,0
 jcommon config,com.facebook.config,ConfigAccessor,237,205,10,16,43,37,25,17,18,11
 jcommon config,com.facebook.config,JSONObjectExtractor,0,7,0,0,0,2,0,2,0,2
-jcommon config,com.facebook.config,ExpandedConfFileJSONProvider,14,30,2,2,3,7,3,2,1,2
 jcommon config,com.facebook.config,ConfigAccessor.new Extractor() {...},39,0,2,0,10,0,3,0,2,0
+jcommon config,com.facebook.config,ExpandedConfFileJSONProvider,14,30,2,2,3,7,3,2,1,2
 jcommon config,com.facebook.config,ConfigProviderImpl,61,0,4,0,17,0,6,0,4,0
 jcommon config,com.facebook.config,StringToPeriodMapper,0,9,0,0,0,2,0,2,0,2
 jcommon config,com.facebook.config,ClassExtractor,6,8,0,0,2,2,0,2,0,2
