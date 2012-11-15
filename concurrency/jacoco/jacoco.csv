@@ -32,8 +32,8 @@ jcommon concurrency,com.facebook.concurrency,CoreConcurrentCache.ValueMapper,0,2
 jcommon concurrency,com.facebook.concurrency,ExpiringConcurrentCache.ValueMapper,27,0,0,0,6,0,2,0,2,0
 jcommon concurrency,com.facebook.concurrency,SingletonExecutorServiceFactory,9,0,0,0,4,0,2,0,2,0
 jcommon concurrency,com.facebook.concurrency,ExpiringConcurrentCache.PrivateCallableSnapshot,0,5,0,0,0,2,0,1,0,1
-jcommon concurrency,com.facebook.concurrency,ConcurrencyUtil.new Runnable() {...},32,0,2,0,8,0,3,0,2,0
 jcommon concurrency,com.facebook.concurrency,NamedDaemonThreadFactory,13,0,0,0,5,0,2,0,2,0
+jcommon concurrency,com.facebook.concurrency,ConcurrencyUtil.new Runnable() {...},32,0,2,0,8,0,3,0,2,0
 jcommon concurrency,com.facebook.concurrency,ConcurrencyUtil.new Function() {...},15,0,0,0,2,0,2,0,2,0
 jcommon concurrency,com.facebook.concurrency,ConcurrencyUtil.new Runnable() {...},19,0,0,0,6,0,2,0,2,0
 jcommon concurrency,com.facebook.concurrency,TaskGroup.FinishLatch,6,10,0,0,1,5,1,2,1,2
@@ -48,8 +48,8 @@ jcommon concurrency,com.facebook.concurrency,NullExceptionHandler,2,3,0,0,1,1,1,
 jcommon concurrency,com.facebook.concurrency,CoreConcurrentCache.new Callable() {...},0,32,0,0,0,4,0,2,0,2
 jcommon concurrency,com.facebook.concurrency,UnstoppableScheduledExecutorService.BookkeepingTask,41,89,1,1,8,26,2,6,1,6
 jcommon concurrency,com.facebook.concurrency,UnstoppableScheduledExecutorService.new UnstoppableScheduledExecutorService.CallableCallback() {...},0,22,0,0,0,2,0,2,0,2
-jcommon concurrency,com.facebook.concurrency,UnstoppableScheduledExecutorService.new UnstoppableScheduledExecutorService.RunnableCallback() {...},0,22,0,0,0,2,0,2,0,2
 jcommon concurrency,com.facebook.concurrency,ExpiringConcurrentCache.PrivateCallableSnapshotFunction.new Callable() {...},0,16,0,0,0,2,0,2,0,2
+jcommon concurrency,com.facebook.concurrency,UnstoppableScheduledExecutorService.new UnstoppableScheduledExecutorService.RunnableCallback() {...},0,22,0,0,0,2,0,2,0,2
 jcommon concurrency,com.facebook.concurrency,UnstoppableScheduledExecutorService.new UnstoppableScheduledExecutorService.RunnableCallback() {...},0,31,0,0,0,2,0,2,0,2
 jcommon concurrency,com.facebook.concurrency,UnstoppableScheduledExecutorService.new UnstoppableScheduledExecutorService.RunnableCallback() {...},0,27,0,0,0,2,0,2,0,2
 jcommon concurrency,com.facebook.concurrency,UnstoppableExecutorServiceCore.TrackedRunnableImpl,5,36,0,2,0,12,0,4,0,3
